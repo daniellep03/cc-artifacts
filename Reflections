@@ -1,0 +1,9 @@
+The Observer pattern is used when one object needs to let other objects know when something changes. We used this pattern in UVSim when we added the GUI in Sprint 2.
+
+As the simulator runs, it constantly updates things like the accumulator, program counter, and memory values. The GUI needs to show those changes right away. At first, we could have had the simulator directly update the GUI, but that would make the simulator depend too much on the interface.
+
+Instead, we used the Observer pattern. The simulator acts as the subject, and the GUI acts as an observer. The GUI signs up to receive updates from the simulator. Whenever the simulator executes an instruction, it sends out an update, and the GUI refreshes the information on the screen.
+
+This worked really well because UVSim can run in both CLI and GUI mode. If the program is running in CLI mode, there are no observers and everything still works normally. If it's running in GUI mode, the interface registers as an observer and receives updates automatically. The simulator doesn't have to know which mode it's running in.
+
+I think the biggest benefit of using the Observer pattern was keeping the simulator and the GUI separate. The simulator can focus on running the program, while the GUI focuses on displaying information. This made the code easier to organize, easier to maintain, and more flexible as we continued developing the project.
