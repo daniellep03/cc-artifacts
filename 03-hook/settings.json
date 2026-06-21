@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/daniellepaje/cc-artifacts/03-hook/secret-scanner.py"
+          }
+        ]
+      }
+    ]
+  }
+}
